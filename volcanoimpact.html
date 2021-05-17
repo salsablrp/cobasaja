@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sinabung Impacts</title>
+<!-- 
+Cafe House Template
+http://www.templatemo.com/tm-466-cafe-house
+-->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/templatemo-style.css" rel="stylesheet">
+  <link href="css/ori.css" rel="stylesheet">
+  <link rel="shortcut icon" href="img/shortcut.png" type="image/x-icon" />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+
+    <section class="tm-welcome-section">
+      <div class="container tm-position-relative">
+        <div class="tm-lights-container">
+          <img src="img/light.png" alt="Light" class="light light-2">
+        </div>        
+        <div class="row tm-welcome-content">
+          <h2 class="white-text tm-handwriting-font tm-welcome-header"><img src="img/header-line.png" alt="Line" class="tm-header-line">&nbsp;Sinabung Impacts&nbsp;&nbsp;<img src="img/header-line.png" alt="Line" class="tm-header-line"></h2><br>
+          <p class="gray-text tm-welcome-description">An active volcano located in the Karo Plateau, Karo, North Sumatra.</p>
+		  <p>The eruptions began in 2010 until now and are increasingly active, resulting in a number of buildings, areas, and residents exposed to the volcano impact.</p>
+          <div class="tm-top-header-inner">
+			<a href="index.html" class="tm-more-button tm-more-button-welcome">Home</a>      
+			<a href="ashimpact.html" class="tm-more-button tm-more-button-welcome">Ash Impacts</a>
+			<a href="#0" class="tm-more-button tm-more-button-welcome active">Volcano Impacts</a>
+			<a href="dashboard_ashimpact.html" class="tm-more-button tm-more-button-welcome" target="_blank" rel="noopener noreferrer">Go to Dashboard</a>
+			<a href="sources.html" class="tm-more-button tm-more-button-welcome">Sources</a>
+		  </div>             
+		</div>
+      </div>      
+    </section>
+	
+    <div class="tm-main-section light-gray-bg">
+      <div class="container" id="main">
+	  
+        <section class="tm-section row">
+          <div class="col-lg-9 col-md-9 col-sm-8" style="margin-left:10%;">
+            <h2 class="tm-section-header tm-handwriting-font" style="margin-left:30%;"> Sinabung Volcano Impacts </h2>
+            <div class="tm-hr-container" style="text-align:center;"><hr class="tm-hr"></div>
+            <p class="tm-welcome-description" style="margin-top:-15px;"> The following map was arranged using Mapbox Studio. Data processing was done using the InaSAFE plugin on QGIS by compiling exposure, hazard, and aggregation data.
+			Hazard data used in this part is volcanic hazard map of Sinabung. Exposure data consists of buildings, roads, land cover, and population data. Aggregation data consists of administrative data combined with gender ratio data.</p> 
+		  </div>   
+        </section> 
+	
+	<section class="tm-section row">
+		<div id='map' style="position:relative; margin-left:-50%; border-radius: 30px; width:900px;"></div>
+		<div class="backto" style="margin-left:17%; margin-top:-1%;">
+		<button id="home-map"><span class="fa fa-home"> Sinabung</span></button>
+			<button id = "naman" onclick="Koridor1() ">NAMANTERAN</button>
+            <button id = "simpang" onclick="Koridor2()">SIMPANG EMPAT</button>
+            <button id = "kuta" onclick="Koridor3()">KUTABULUH</button>
+            <button id = "tigander" onclick="Koridor4()">TIGANDERKET</button>
+            <button id = "payung" onclick="Koridor5()">PAYUNG</button>
+            <button id = "munte" onclick="Koridor6()">MUNTE</button>
+            <button id = "tigabin" onclick="Koridor7()">TIGABINANGA</button>
+		</div>
+	</section>
+
+        <section class="tm-section row">
+          <div class="col-lg-12 tm-section-header-container margin-bottom-30">
+            <h2 class="tm-section-header gold-text tm-handwriting-font"><img src="img/logo.png" width="50" alt="Logo" class="tm-site-logo"> Impact Details</h2>
+            <div class="tm-hr-container"><hr class="tm-hr"></div>
+          </div>
+
+            <div class="col-lg-3 col-md-3">
+              <div class="tm-position-relative margin-bottom-30">              
+                <nav class="tm-side-menu">
+                  <ul>
+                    <li><a href="#" class="active">Affogato</a></li>
+                    <li><a href="#">Caffè Americano</a></li>
+                    <li><a href="#">Caffè latte</a></li>
+                    <li><a href="#">Coffee milk</a></li>
+                    <li><a href="#">Café mocha</a></li>
+                    <li><a href="#">Cappuccino</a></li>
+                    <li><a href="#">Espresso</a></li>
+                    <li><a href="#">Iced coffee</a></li>
+                    <li><a href="#">Instant coffee</a></li>
+                    <li><a href="#">Mocha</a></li>
+                    <li><a href="#">black coffee</a></li>
+                  </ul>              
+                </nav>    
+                <img src="img/vertical-menu-bg.png" alt="Menu bg" class="tm-side-menu-bg">
+              </div>  
+            </div>            
+`
+           
+        </section>
+      </div>
+    </div> 
+	
+    <footer>
+      <div class="tm-black-bg">
+        <div class="container">
+          <div class="row margin-bottom-60">
+              <p style="padding-left:40%;">Contact me for further information.</p>
+              <div class="tm-social-icons-container" style="padding-left:40%;">
+                <a href="mailto:salsabila.tk@mail.ugm.ac.id" class="tm-social-icon"><i class="fa fa-envelope"></i></a>
+                <a href="http://instagram.com/aslasrp" class="tm-social-icon"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/salsabila-prasetya/" class="tm-social-icon"><i class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/salsablrp" class="tm-social-icon"><i class="fa fa-github"></i></a>
+            </div>
+          </div>          
+        </div>  
+      </div>  
+	  
+      <div>
+        <div class="container">
+          <div class="row tm-copyright">
+           <p class="col-lg-12 small copyright-text text-center">Copyright &copy; 2021 Salsabila R Prasetya, adopted from Your Cafe House Template</p>
+         </div>  
+       </div>
+     </div>
+   </footer> <!-- Footer content-->  
+  
+  <!-- JS -->
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1Ijoic2Fsc2FycHIiLCJhIjoiY2tpM3VkNDFjMTFyMjJ6bno5NTJoOWpkNiJ9.r1DjWLJOl6FYNMPDQVYCLw';
+
+  var bounds = [
+  [98.0877628069917,2.824589546367753],
+  [98.64407467971423,3.474828775823416]
+  ];
+
+  var centerPoint = [98.390681, 3.151028]
+  var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/salsarpr/ckmynu9yx1zr817p1alsx1c5n', // stylesheet location
+    center: centerPoint, // starting position [lng, lat]
+    zoom: 13.43,
+    bearing: 0,
+    pitch: 77.00,
+	maxBounds: bounds
+    });
+    
+    map.on('load', function() {
+
+	map.addControl(new mapboxgl.NavigationControl());
+
+    var filterHazard = ['!=', ['string', ['get', 'hazard_class']], 'placeholder'];
+
+	// add a sky layer that will show when the map is highly pitched
+	map.addLayer({
+		'id': 'sky',
+		'type': 'sky',
+		'paint': {
+		'sky-type': 'atmosphere',
+		'sky-atmosphere-sun': [0.0, 0.0],
+		'sky-atmosphere-sun-intensity': 15
+		}
+	});
+  });
+  
+    document.getElementById("naman").addEventListener("click", function() {
+        map.flyTo({
+        center: [98.421276, 3.181195],
+        zoom : 12.5,
+        pitch: 45.5,
+        bearing: 0,
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
+      });
+    document.getElementById("simpang").addEventListener("click", function() {
+        map.flyTo({
+        center: [98.443041, 3.124557],
+        zoom : 12.5,
+        pitch: 45.5,
+        bearing: 0,
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
+      });
+      document.getElementById("kuta").addEventListener("click", function() {
+        map.flyTo({
+          center: [98.227809, 3.192198],
+        zoom : 12.5,
+        pitch: 45.5,
+        bearing: 0,
+          essential: true // this animation is considered essential with respect to prefers-reduced-motion
+          });
+        });
+      document.getElementById("tigander").addEventListener("click", function() {
+        map.flyTo({
+        center: [98.333664, 3.181862],
+        zoom : 12.5,
+        pitch: 45.5,
+        bearing: 0,
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+          });
+        });
+      document.getElementById("payung").addEventListener("click", function() {
+        map.flyTo({
+        center: [98.375148, 3.128288],
+        zoom : 12.5,
+        pitch: 45.5,
+        bearing: 0,
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
+      });
+      document.getElementById("munte").addEventListener("click", function() {
+        map.flyTo({
+        center: [98.378049, 3.060088],
+        zoom : 12.5,
+        pitch: 45.5,
+        bearing: 0,
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
+      });
+      document.getElementById("tigabin").addEventListener("click", function() {
+        map.flyTo({
+        center: [98.216703, 3.061688],
+        zoom : 12.5,
+        pitch: 45.5,
+        bearing: 0,
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
+      });
+      document.getElementById("home-map").addEventListener("click", function() {
+        map.flyTo({
+        center: [98.390681, 3.151028],
+		zoom: 13.43,
+		bearing: 0,
+		pitch: 77.00,
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
+      });
+ </script>
+
+   <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
+   <script type="text/javascript" src="js/templatemo-script.js"></script>      <!-- Templatemo Script -->
+ </body>
+ </html>

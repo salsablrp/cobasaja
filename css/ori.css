@@ -1,0 +1,274 @@
+    h1 {
+    font-size: 13px;
+    line-height: 30px;
+    }
+    h2 {
+      font-size: 9px;
+      line-height: 20px;
+      margin-left: 5px;
+      margin-bottom: 4px;
+      margin-top: 0px;
+      text-align: left;
+      }
+    h3 {
+      font-size: 7px;
+      line-height: 10px;
+      margin-bottom: 8px;
+      margin-top: 0px;
+      text-align: center;
+    }
+    h4 {
+      font-size: 5px;
+      line-height: 10px;
+      margin-bottom: 8px;
+      margin-top: 20px;
+      text-align: center;
+    }
+	
+	body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+	body, html {
+	  height: 100%;
+	  line-height: 1.8;
+	}
+  
+      #map {
+      position: absolute;
+      width: 800px;
+      height: 450px;
+      left: 500px;
+      top: 25px;
+    }
+    #container {
+      position: absolute;
+      background-color: white;
+    }
+    #tableauViz {
+        background-color: white;
+        width: 1366px;
+        height: 750px;
+    }
+
+    /* popup */
+    .mapboxgl-popup {
+      max-width: 150px;
+      max-height: 100px;
+      opacity: 0.9;
+      }
+    .mapboxgl-popup-content {
+      text-align: left;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #202020;
+      color: #fff;
+    }
+    .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+    .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip,
+    .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+        border-top-color: #202020;
+    }
+    .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+    .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip,
+    .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+        border-bottom-color: #202020;
+    }
+    .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+        border-left-color: #202020;
+    }
+    .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+        border-right-color: #202020;
+    }
+
+	.map-overlay-inner {
+        background: #ffffff00;
+        color: brown;
+        padding: 5px;
+        margin-bottom: 5px;
+        z-index: 1;
+    }
+
+      .left-map-top {
+          position: absolute;
+          top: 40px;
+          left: 1120px;
+		  font-size: 15px;
+          border-radius: 30px;
+      }
+	  
+            .session {
+          margin-bottom: 20px;
+        }
+		
+		.map-overlay-inner button:hover {background-color: #6488b4;}
+		
+.backto button{
+  background: #f1f1f1;
+  color: brown;
+  cursor: pointer; /* Pointer/hand icon */
+  position: relative;
+  border-color: grey;
+  font-size: 10px;
+}
+
+.backto button:hover {
+  background-color: #ddd;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: brown;
+}
+
+.previous {
+  position: relative;
+  top: 30px;
+  left: 50px;
+  background-color: #f1f1f1;
+  color: brown;
+  border-radius: 50%;
+}
+
+.next {left:90px;}
+
+.btn-group button {
+  background: #f1f1f1;
+  color: brown;
+  cursor: pointer; /* Pointer/hand icon */
+  left: 530px;
+  position: relative;
+  border-color: grey;
+  font-size: 10px;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #ddd;
+}
+
+/* The actual time (the vertical ruler) */
+.time {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  top: 10px;
+}
+
+/* The actual time (the vertical ruler) */
+.time::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #d4d9c6;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.line {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the time */
+.line::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: #d4d9c6;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the line to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left line (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #d4d9c6;
+}
+
+/* Add arrows to the right line (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #d4d9c6 transparent transparent;
+}
+
+/* Fix the circle for lines on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: #d4d9c6;
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive time on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+/* Place the timelime to the left */
+  .time::after {
+    left: 31px;
+  }
+
+/* Full-width lines */
+  .line {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+/* Make sure that all arrows are pointing leftwards */
+  .line::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #d4d9c6 transparent transparent;
+  }
+
+/* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+    left: 15px;
+  }
+
+/* Make all right lines behave like the left ones */
+  .right {
+    left: 0%;
+  }
+}
+
+.ordinal {vertical-align:super; font-size:12px;}
