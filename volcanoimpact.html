@@ -53,7 +53,7 @@ http://www.templatemo.com/tm-466-cafe-house
 		</div>
       </div>      
     </section>
-	
+	  
     <div class="tm-main-section light-gray-bg">
       <div class="container" id="main">
 	  
@@ -61,11 +61,49 @@ http://www.templatemo.com/tm-466-cafe-house
           <div class="col-lg-9 col-md-9 col-sm-8" style="margin-left:10%;">
             <h2 class="tm-section-header tm-handwriting-font" style="margin-left:27%; font-size:27px;"> Sinabung Volcano Impacts </h2>
             <div class="tm-hr-container" style="text-align:center;"><hr class="tm-hr"></div>
-            <p class="tm-welcome-description" style="margin-top:-15px;"> The following map was arranged using Mapbox Studio. Data processing was done using the InaSAFE plugin on QGIS by compiling exposure, hazard, and aggregation data.
-			Hazard data used in this part is volcanic hazard map of Sinabung. Exposure data consists of buildings, roads, land cover, and population data. Aggregation data consists of administrative data combined with gender ratio data.</p> 
-		  </div>   
+	  </div>   
         </section> 
-	
+
+		<section class="tm-section row">
+          <div class="col-lg-12 tm-popular-items-container">
+            <div class="tm-popular-item">
+              <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+              <div class="tm-popular-item-description">
+                <br></br><h3 class="tm-handwriting-font tm-popular-item-title" style="margin-top:-5%;"><span class="tm-handwriting-font bigger-first-letter">d</span>escription</h3><hr class="tm-popular-item-hr">
+                <br></br><p>This web based GIS (Geographic Information System) was made to show the impact of Sinabung volcano disaster seen from the volcano hazard map. Both impact are visualized each into a map and a dashboard which can be seen on this page and the dashboard page.</p>
+				<p>It is also the output for an undergraduate thesis by Salsabila Ramadhani Prasetya, an undergraduate student in Geodetic Engineering, Universitas Gadjah Mada. The thesis is titled "3D WebGIS Vilsualization of The Sinabung Impacted Building."</p>
+              </div>              
+            </div>
+            <div class="tm-popular-item">
+              <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+              <div class="tm-popular-item-description">
+                <br></br><h3 class="tm-handwriting-font tm-popular-item-title" style="margin-top:-5%;"><span class="tm-handwriting-font bigger-first-letter">p</span>rocess</h3><hr class="tm-popular-item-hr">
+                <br></br><p>The impact analysis done in this web was processed using InaSAFE plugin in QGIS by compiling exposure, hazard, and aggregation data.</p>
+				<p>Hazard data used in this part is volcanic ash of Sinabung. Exposure data consists of buildings, roads, land cover, and population data. Aggregation data consists of administrative data combined with gender ratio data.</p>
+				<p>The map visualization was done using Mapbox, including the extrusion for the building. The extrusion using elevation data extracted from DEM and DSM data.</p>
+				<p>Dashboard was made using Tableau and the data used was the tabular result from InaSAFE processing. The dashboard then integrated with the Mapbox visualization to make it interactive.</p>
+              </div>              
+            </div>
+            <div class="tm-popular-item">
+              <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+              <div class="tm-popular-item-description">
+                <br></br><h3 class="tm-handwriting-font tm-popular-item-title" style="margin-top:-5%;"><span class="tm-handwriting-font bigger-first-letter">s</span>ources</h3><hr class="tm-popular-item-hr">               
+				<ul style="margin-top:40px; text-align:justify;">
+                  <b>PVMBG</b>
+					<li>Sinabung Hazard Map with a scale of 1:50.000. The eruption history used to make the map is from year 2017-2020, the prone areas have not changed during the period.</li>
+				  <p></p><b>OpenStreetMap</b>
+					<li>Roads, buildings, and landcover data around Sinabung area in shapefile format.</li>
+					<li>Sinabung mountain point in shapefile format.</li>
+				  <p></p><p><b>WorldPop : </b> Population data around Karo district in 2018-2020 in .tiff format.</p>
+				  <p><b>Geoportal Indonesia : </b>Karo district administrative border in shapefile format.</p>
+				  <p><b>DEMNAS : </b>DEM around Sinabung in .tiff format.</p>
+				  <p><b>ALOS Global Digital Surface Model : </b>DSM around Sinabung in .tiff format.</p> 
+                </ul>
+              </div>              
+            </div>
+          </div> 
+		</section>
+	      
 	<section class="tm-section row">
 		<div id='map' style="position:relative; margin-left:-50%; border-radius: 30px; width:900px;"></div>
 		<div class="backto" style="margin-left:17%; margin-top:-1%;">
