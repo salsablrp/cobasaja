@@ -14,6 +14,7 @@ http://www.templatemo.com/tm-466-cafe-house
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/templatemo-style.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
   <link href="css/ori.css" rel="stylesheet">
   <link rel="shortcut icon" href="img/shortcut.png" type="image/x-icon" />
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
@@ -34,6 +35,7 @@ http://www.templatemo.com/tm-466-cafe-house
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
     </div>
+    <!-- End Preloader -->
 
     <section class="tm-welcome-section">
       <div class="container tm-position-relative">
@@ -44,12 +46,20 @@ http://www.templatemo.com/tm-466-cafe-house
           <h2 class="white-text tm-handwriting-font tm-welcome-header"><img src="img/header-line.png" alt="Line" class="tm-header-line">&nbsp;Sinabung Impacts&nbsp;&nbsp;<img src="img/header-line.png" alt="Line" class="tm-header-line"></h2><br>
           <p class="gray-text tm-welcome-description">An active volcano located in the Karo Plateau, Karo, North Sumatra.</p>
 		  <p>The eruptions began in 2010 until now and are increasingly active, resulting in a number of buildings, areas, and residents exposed to the volcano impact.</p>
+
+            <div class="mobile-menu-icon">
+              <i class="fa fa-bars"></i>
+            </div>
+            <nav class="tm-nav">
+              <ul>
           <div class="tm-top-header-inner">
-			<a href="#0" class="tm-more-button tm-more-button-welcome active">Home</a>      
-			<a href="ashimpact.html" class="tm-more-button tm-more-button-welcome">Ash Impacts</a>
-			<a href="volcanoimpact.html" class="tm-more-button tm-more-button-welcome">Volcano Impacts</a>
-			<a href="dashboard_ashimpact.html" class="tm-more-button tm-more-button-welcome" target="_blank" rel="noopener noreferrer">Go to Dashboard</a>
-		  </div>             
+			<li><a href="#0" class="tm-more-button tm-more-button-welcome active">Home</a></li>      
+			<li><a href="ashimpact.html" class="tm-more-button tm-more-button-welcome">Ash Impacts</a></li>
+			<li><a href="volcanoimpact.html" class="tm-more-button tm-more-button-welcome">Volcano Impacts</a></li>
+			<li><a href="dashboard_ashimpact.html" class="tm-more-button tm-more-button-welcome" target="_blank" rel="noopener noreferrer">Go to Dashboard</a></li>
+		  </div>
+              </ul>
+            </nav>  		  
 		</div>
       </div>      
     </section>
@@ -58,24 +68,41 @@ http://www.templatemo.com/tm-466-cafe-house
       <div class="container" id="main">
 	  
         <section class="tm-section row">  
-          <div class="col-lg-9 col-md-9 col-sm-8" style="margin-left:10%;">
-            <h2 class="tm-section-header tm-handwriting-font" style="margin-left:33%;"> Sinabung in a Glance </h2>
-            <div class="tm-hr-container" style="text-align:center;"><hr class="tm-hr"></div>
+          <div class="col-lg-12 tm-section-header-container">
+            <h2 class="tm-section-header gold-text tm-handwriting-font" style="font-size:20px;"><img src="img/logo.png" width="50" alt="Logo" class="tm-site-logo"> Sinabung in a Glance</h2>
+			<div class="tm-hr-container"><hr class="tm-hr"></div>
           </div>   
         </section> 
 
 	<section class="tm-section row">
-		<div id='map' style="position:relative; margin-left:-50%; border-radius: 30px; width:900px;"></div>
+		<div id='map'></div>
 		<div class="backto" style="margin-left:17%; margin-top:-1%;">
 		<button id="home-map"><span class="fa fa-home"> Sinabung</span></button>
 		<button id="karo"><span class="fa fa-home"> Karo</span></button>
 		</div>
+	
+            <div class="keterangan">
+              <p style="font-size: 110%; text-align:center;"><em><strong>Information : </strong>  
+			This is an alternative view. Your screen width is too narrow.</em></p><p style="text-align:center;"> Use a wider screen for better view and try again.</p>
+            </div>
+	
+	<div id="Iframe-Map" class="set-margin set-padding set-border set-box-shadow center-block-horiz">
+	  <div class="responsive-wrapper 
+		 responsive-wrapper-wxh-600x480"
+		 style="-webkit-overflow-scrolling: touch; overflow: auto;">
+
+		<iframe src="https://api.mapbox.com/styles/v1/salsarpr/cknjjqog01d7317nkvnr3noxu.html?fresh=true&title=view&access_token=pk.eyJ1Ijoic2Fsc2FycHIiLCJhIjoiY2tpM3VkNDFjMTFyMjJ6bno5NTJoOWpkNiJ9.r1DjWLJOl6FYNMPDQVYCLw"> 
+		  <p style="font-size: 110%;"><em><strong>ERROR: </strong>  
+			An &#105;frame should be displayed here but your browser version does not support &#105;frames. </em>Please update your browser to its most recent version and try again.</p>
+		</iframe>
+	  </div>
+	</div>
 	</section>
 	  
-        <section class="tm-section row">
-		  <div class="col-lg-12 tm-section-header-container">
+        <section class="tm-section tm-section-margin-bottom-0 row">
+          <div class="col-lg-12 tm-section-header-container">
+            <h2 class="tm-section-header gold-text tm-handwriting-font"><img src="img/logo.png" width="50" alt="Logo" class="tm-site-logo"> Eruption Overview</h2>
 			<div class="tm-hr-container"><hr class="tm-hr"></div>
-            <h2 class="tm-section-header gold-text tm-handwriting-font" style="margin-left: 1.25em; font-size:23px;"> Eruption Overview</h2><img src="img/logo.png" width="50" alt="Logo" class="tm-site-logo">
           </div>
 		</section>
 		
@@ -137,7 +164,7 @@ http://www.templatemo.com/tm-466-cafe-house
 
         <section class="tm-section row">
           <div class="col-lg-12 tm-section-header-container">
-            <h2 class="tm-section-header gold-text tm-handwriting-font" style="font-size:20px;"><img src="img/logo.png" width="50" alt="Logo" class="tm-site-logo"> More of Sinabung</h2>
+            <h2 class="tm-section-header gold-text tm-handwriting-font"><img src="img/logo.png" width="50" alt="Logo" class="tm-site-logo"> More of Sinabung</h2>
 			<div class="tm-hr-container"><hr class="tm-hr"></div>
           </div>
           <div class="col-lg-12 tm-popular-items-container">
@@ -181,8 +208,8 @@ http://www.templatemo.com/tm-466-cafe-house
       <div class="tm-black-bg">
         <div class="container">
           <div class="row margin-bottom-60">
-              <p style="padding-left:40%;">Contact me for further information.</p>
-              <div class="tm-social-icons-container" style="padding-left:40%;">
+              <p style="padding-left:35%;">Contact me for further information.</p>
+              <div class="tm-social-icons-container" style="padding-left:35%;">
                 <a href="mailto:salsabila.tk@mail.ugm.ac.id" class="tm-social-icon"><i class="fa fa-envelope"></i></a>
                 <a href="http://instagram.com/aslasrp" class="tm-social-icon"><i class="fa fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/in/salsabila-prasetya/" class="tm-social-icon"><i class="fa fa-linkedin"></i></a>
@@ -201,7 +228,7 @@ http://www.templatemo.com/tm-466-cafe-house
      </div>
    </footer> <!-- Footer content-->  
    <!-- JS -->
-
+   
 <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoic2Fsc2FycHIiLCJhIjoiY2tpM3VkNDFjMTFyMjJ6bno5NTJoOWpkNiJ9.r1DjWLJOl6FYNMPDQVYCLw';
 
@@ -257,7 +284,7 @@ http://www.templatemo.com/tm-466-cafe-house
 	.setLngLat([98.389385, 3.168628])
 	.setHTML('<b>Sinabung Mountain</b><p></p>Sinabung volcano is a cone-shaped stratovolcano, with a peak height of 2460 m above sea level.<p></p>It is administratively included in Karo, North Sumatra Province, and geographically is located at the position of 3&deg;10 North Latitude and 98&deg;23.5 East Longitude.')
 	.addTo(map);
- </script>
+ </script> 
 
    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
    <script type="text/javascript" src="js/templatemo-script.js"></script>      <!-- Templatemo Script -->
