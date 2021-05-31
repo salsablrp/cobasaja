@@ -5,11 +5,8 @@
   <title>Sinabung Ash Impact</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <link rel="shortcut icon" href="img/shortcut.png" type="image/x-icon" />
-  <link rel="stylesheet" href="css/ori.css">                              
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="shortcut icon" href="img/shortcut.png" type="image/x-icon" />   
+  <link rel="stylesheet" href="css/dashboard.css">    
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
   <script src='https://code.jquery.com/jquery-1.10.2.js'></script>
@@ -37,7 +34,7 @@
 </div>
 
         <div class='btn-group'>
-			<button id = "naman" onclick="Koridor1() ">NAMANTERAN</button>
+			<button id = "naman" onclick="Koridor1()">NAMANTERAN</button>
             <button id = "simpang" onclick="Koridor2()">SIMPANG EMPAT</button>
             <button id = "kuta" onclick="Koridor3()">KUTABULUH</button>
             <button id = "tigander" onclick="Koridor4()">TIGANDERKET</button>
@@ -65,7 +62,7 @@ var url = "https://public.tableau.com/views/SinabungAshImpacts/Dashboard1?:langu
 var placeholderDiv = document.getElementById("tableauViz");
 viz = new tableau.Viz(placeholderDiv, url, options);
 
-function filterSingleValue(filters) {
+  function Koridor1() {
     var dashboard, activeSheet, district, structure, road, landcover, rates, percent, pop18, pop20;
     workbook.activateSheetAsync("Dashboard1")
     .then(function (sheet) {
@@ -78,138 +75,154 @@ function filterSingleValue(filters) {
 	  percent = dashboard.getWorksheets().get("Percentage");
 	  pop18 = dashboard.getWorksheets().get("WorldPop2018-2019");
 	  pop20 = dashboard.getWorksheets().get("WorldPop2020");
-      district.applyFilterAsync("hazard_class", filters.value, tableauSoftware.FilterUpdateType.REPLACE);
-      structure.applyFilterAsync("Hazard Class", filters.value, tableauSoftware.FilterUpdateType.REPLACE);
-	  road.applyFilterAsync("hazard_class", filters.value, tableauSoftware.FilterUpdateType.REPLACE);
-	  landcover.applyFilterAsync("hazard_class", filters.value, tableauSoftware.FilterUpdateType.REPLACE);
-	  percent.applyFilterAsync("hazard_class", filters.value, tableauSoftware.FilterUpdateType.REPLACE);
-	  pop18.applyFilterAsync("hazard_class", filters.value, tableauSoftware.FilterUpdateType.REPLACE);
-	  pop20.applyFilterAsync("hazard_class", filters.value, tableauSoftware.FilterUpdateType.REPLACE);
-	  return rates.applyFilterAsync("hazard_class", filters.value, tableauSoftware.FilterUpdateType.REPLACE);
-      })
-  }
-  function clearFilter() {
-      var dashboard, activeSheet, korSheet, halSheet, hourSheet;
-      workbook.activateSheetAsync("asd")
-      .then(function (sheet) {
-        dashboard = sheet;
-        korSheet = dashboard.getWorksheets().get("1Koridor");
-        halSheet = dashboard.getWorksheets().get("1Halte");
-        hourSheet = dashboard.getWorksheets().get("1hourly");
-        daySheet = dashboard.getWorksheets().get("1daily");
-        korSheet.clearFilterAsync("Koridor");
-        korSheet.clearFilterAsync("Hari");
-        halSheet.clearFilterAsync("Hari");
-        daySheet.clearFilterAsync("Koridor");
-        hourSheet.clearFilterAsync("Koridor");
-        return hourSheet.clearFilterAsync("Hari");
-        })
-    }
-  function Koridor1() {
-      var dashboard, activeSheet, korSheet, halSheet, hourSheet;
-      workbook.activateSheetAsync("asd")
-      .then(function (sheet) {
-        dashboard = sheet;
-        korSheet = dashboard.getWorksheets().get("1Koridor");
-        halSheet = dashboard.getWorksheets().get("1Halte");
-        hourSheet = dashboard.getWorksheets().get("1hourly");
-        daySheet = dashboard.getWorksheets().get("1daily");
-        korSheet.applyFilterAsync("Koridor", "1", tableauSoftware.FilterUpdateType.REPLACE);
-        halSheet.applyFilterAsync("Koridor", "1", tableauSoftware.FilterUpdateType.REPLACE);
-        daySheet.applyFilterAsync("Koridor", "1", tableauSoftware.FilterUpdateType.REPLACE);
-        return hourSheet.applyFilterAsync("Koridor", "1", tableauSoftware.FilterUpdateType.REPLACE);
+        district.applyFilterAsync("Namobj", "NAMANTERAN", tableauSoftware.FilterUpdateType.REPLACE);
+        structure.applyFilterAsync("Aggregation Id", "NAMANTERAN", tableauSoftware.FilterUpdateType.REPLACE);
+        road.applyFilterAsync("Aggregation ID", "NAMANTERAN", tableauSoftware.FilterUpdateType.REPLACE);
+        landcover.applyFilterAsync("Aggregation Id", "NAMANTERAN", tableauSoftware.FilterUpdateType.REPLACE);
+        rates.applyFilterAsync("Aggregation Id", "NAMANTERAN", tableauSoftware.FilterUpdateType.REPLACE);        
+		percent.applyFilterAsync("Namobj", "NAMANTERAN", tableauSoftware.FilterUpdateType.REPLACE);
+        pop18.applyFilterAsync("Aggregation Name", "NAMANTERAN", tableauSoftware.FilterUpdateType.REPLACE);
+        return pop20.applyFilterAsync("Aggregation Name", "NAMANTERAN", tableauSoftware.FilterUpdateType.REPLACE);
         })
     }
     function Koridor2() {
-        var dashboard, activeSheet, korSheet, halSheet, hourSheet;
-        workbook.activateSheetAsync("asd")
-        .then(function (sheet) {
-          dashboard = sheet;
-          korSheet = dashboard.getWorksheets().get("1Koridor");
-          halSheet = dashboard.getWorksheets().get("1Halte");
-          hourSheet = dashboard.getWorksheets().get("1hourly");
-          daySheet = dashboard.getWorksheets().get("1daily");
-          daySheet.applyFilterAsync("Koridor", "2", tableauSoftware.FilterUpdateType.REPLACE);
-          korSheet.applyFilterAsync("Koridor", "2", tableauSoftware.FilterUpdateType.REPLACE);
-          halSheet.applyFilterAsync("Koridor", "2", tableauSoftware.FilterUpdateType.REPLACE);
-          return hourSheet.applyFilterAsync("Koridor", "2", tableauSoftware.FilterUpdateType.REPLACE);
-          })
-      }
+    var dashboard, activeSheet, district, structure, road, landcover, rates, percent, pop18, pop20;
+    workbook.activateSheetAsync("Dashboard1")
+    .then(function (sheet) {
+      dashboard = sheet;
+	  district = dashboard.getWorksheets().get("District");
+	  structure = dashboard.getWorksheets().get("StructuresImpact");
+	  road = dashboard.getWorksheets().get("RoadImpact");
+	  landcover = dashboard.getWorksheets().get("LandcoverImpact");
+	  rates = dashboard.getWorksheets().get("LandcoverRates");
+	  percent = dashboard.getWorksheets().get("Percentage");
+	  pop18 = dashboard.getWorksheets().get("WorldPop2018-2019");
+	  pop20 = dashboard.getWorksheets().get("WorldPop2020");
+        district.applyFilterAsync("Namobj", "SIMPANG EMPAT", tableauSoftware.FilterUpdateType.REPLACE);
+        structure.applyFilterAsync("Aggregation Id", "SIMPANG EMPAT", tableauSoftware.FilterUpdateType.REPLACE);
+        road.applyFilterAsync("Aggregation ID", "SIMPANG EMPAT", tableauSoftware.FilterUpdateType.REPLACE);
+        landcover.applyFilterAsync("Aggregation Id", "SIMPANG EMPAT", tableauSoftware.FilterUpdateType.REPLACE);
+        rates.applyFilterAsync("Aggregation Id", "SIMPANG EMPAT", tableauSoftware.FilterUpdateType.REPLACE);        
+		percent.applyFilterAsync("Namobj", "SIMPANG EMPAT", tableauSoftware.FilterUpdateType.REPLACE);
+        pop18.applyFilterAsync("Aggregation Name", "SIMPANG EMPAT", tableauSoftware.FilterUpdateType.REPLACE);
+        return pop20.applyFilterAsync("Aggregation Name", "SIMPANG EMPAT", tableauSoftware.FilterUpdateType.REPLACE);
+        })
+    }
       function Koridor3() {
-          var dashboard, activeSheet, korSheet, halSheet, hourSheet;
-          workbook.activateSheetAsync("asd")
-          .then(function (sheet) {
-            dashboard = sheet;
-            korSheet = dashboard.getWorksheets().get("1Koridor");
-            halSheet = dashboard.getWorksheets().get("1Halte");
-            hourSheet = dashboard.getWorksheets().get("1hourly");
-            daySheet = dashboard.getWorksheets().get("1daily");
-            daySheet.applyFilterAsync("Koridor", "3", tableauSoftware.FilterUpdateType.REPLACE);
-            korSheet.applyFilterAsync("Koridor", "3", tableauSoftware.FilterUpdateType.REPLACE);
-            halSheet.applyFilterAsync("Koridor", "3", tableauSoftware.FilterUpdateType.REPLACE);
-            return hourSheet.applyFilterAsync("Koridor", "3", tableauSoftware.FilterUpdateType.REPLACE);
-            })
-        }
+    var dashboard, activeSheet, district, structure, road, landcover, rates, percent, pop18, pop20;
+    workbook.activateSheetAsync("Dashboard1")
+    .then(function (sheet) {
+      dashboard = sheet;
+	  district = dashboard.getWorksheets().get("District");
+	  structure = dashboard.getWorksheets().get("StructuresImpact");
+	  road = dashboard.getWorksheets().get("RoadImpact");
+	  landcover = dashboard.getWorksheets().get("LandcoverImpact");
+	  rates = dashboard.getWorksheets().get("LandcoverRates");
+	  percent = dashboard.getWorksheets().get("Percentage");
+	  pop18 = dashboard.getWorksheets().get("WorldPop2018-2019");
+	  pop20 = dashboard.getWorksheets().get("WorldPop2020");
+        district.applyFilterAsync("Namobj", "KUTABULUH", tableauSoftware.FilterUpdateType.REPLACE);
+        structure.applyFilterAsync("Aggregation Id", "KUTABULUH", tableauSoftware.FilterUpdateType.REPLACE);
+        road.applyFilterAsync("Aggregation ID", "KUTABULUH", tableauSoftware.FilterUpdateType.REPLACE);
+        landcover.applyFilterAsync("Aggregation Id", "KUTABULUH", tableauSoftware.FilterUpdateType.REPLACE);
+        rates.applyFilterAsync("Aggregation Id", "KUTABULUH", tableauSoftware.FilterUpdateType.REPLACE);        
+		percent.applyFilterAsync("Namobj", "KUTABULUH", tableauSoftware.FilterUpdateType.REPLACE);
+        pop18.applyFilterAsync("Aggregation Name", "KUTABULUH", tableauSoftware.FilterUpdateType.REPLACE);
+        return pop20.applyFilterAsync("Aggregation Name", "KUTABULUH", tableauSoftware.FilterUpdateType.REPLACE);
+        })
+    }
         function Koridor4() {
-            var dashboard, activeSheet, korSheet, halSheet, hourSheet;
-            workbook.activateSheetAsync("asd")
-            .then(function (sheet) {
-              dashboard = sheet;
-              korSheet = dashboard.getWorksheets().get("1Koridor");
-              halSheet = dashboard.getWorksheets().get("1Halte");
-              hourSheet = dashboard.getWorksheets().get("1hourly");
-              daySheet = dashboard.getWorksheets().get("1daily");
-              daySheet.applyFilterAsync("Koridor", "4", tableauSoftware.FilterUpdateType.REPLACE);
-              korSheet.applyFilterAsync("Koridor", "4", tableauSoftware.FilterUpdateType.REPLACE);
-              halSheet.applyFilterAsync("Koridor", "4", tableauSoftware.FilterUpdateType.REPLACE);
-              return hourSheet.applyFilterAsync("Koridor", "4", tableauSoftware.FilterUpdateType.REPLACE);
-              })
-          }
+    var dashboard, activeSheet, district, structure, road, landcover, rates, percent, pop18, pop20;
+    workbook.activateSheetAsync("Dashboard1")
+    .then(function (sheet) {
+      dashboard = sheet;
+	  district = dashboard.getWorksheets().get("District");
+	  structure = dashboard.getWorksheets().get("StructuresImpact");
+	  road = dashboard.getWorksheets().get("RoadImpact");
+	  landcover = dashboard.getWorksheets().get("LandcoverImpact");
+	  rates = dashboard.getWorksheets().get("LandcoverRates");
+	  percent = dashboard.getWorksheets().get("Percentage");
+	  pop18 = dashboard.getWorksheets().get("WorldPop2018-2019");
+	  pop20 = dashboard.getWorksheets().get("WorldPop2020");
+        district.applyFilterAsync("Namobj", "TIGANDERKET", tableauSoftware.FilterUpdateType.REPLACE);
+        structure.applyFilterAsync("Aggregation Id", "TIGANDERKET", tableauSoftware.FilterUpdateType.REPLACE);
+        road.applyFilterAsync("Aggregation ID", "TIGANDERKET", tableauSoftware.FilterUpdateType.REPLACE);
+        landcover.applyFilterAsync("Aggregation Id", "TIGANDERKET", tableauSoftware.FilterUpdateType.REPLACE);
+        rates.applyFilterAsync("Aggregation Id", "TIGANDERKET", tableauSoftware.FilterUpdateType.REPLACE);        
+		percent.applyFilterAsync("Namobj", "TIGANDERKET", tableauSoftware.FilterUpdateType.REPLACE);
+        pop18.applyFilterAsync("Aggregation Name", "TIGANDERKET", tableauSoftware.FilterUpdateType.REPLACE);
+        return pop20.applyFilterAsync("Aggregation Name", "TIGANDERKET", tableauSoftware.FilterUpdateType.REPLACE);
+        })
+    }
           function Koridor5() {
-              var dashboard, activeSheet, korSheet, halSheet, hourSheet;
-              workbook.activateSheetAsync("asd")
-              .then(function (sheet) {
-                dashboard = sheet;
-                korSheet = dashboard.getWorksheets().get("1Koridor");
-                halSheet = dashboard.getWorksheets().get("1Halte");
-                hourSheet = dashboard.getWorksheets().get("1hourly");
-                daySheet = dashboard.getWorksheets().get("1daily");
-                daySheet.applyFilterAsync("Koridor", "5", tableauSoftware.FilterUpdateType.REPLACE);
-                korSheet.applyFilterAsync("Koridor", "5", tableauSoftware.FilterUpdateType.REPLACE);
-                halSheet.applyFilterAsync("Koridor", "5", tableauSoftware.FilterUpdateType.REPLACE);
-                return hourSheet.applyFilterAsync("Koridor", "5", tableauSoftware.FilterUpdateType.REPLACE);
-                })
-            }
+    var dashboard, activeSheet, district, structure, road, landcover, rates, percent, pop18, pop20;
+    workbook.activateSheetAsync("Dashboard1")
+    .then(function (sheet) {
+      dashboard = sheet;
+	  district = dashboard.getWorksheets().get("District");
+	  structure = dashboard.getWorksheets().get("StructuresImpact");
+	  road = dashboard.getWorksheets().get("RoadImpact");
+	  landcover = dashboard.getWorksheets().get("LandcoverImpact");
+	  rates = dashboard.getWorksheets().get("LandcoverRates");
+	  percent = dashboard.getWorksheets().get("Percentage");
+	  pop18 = dashboard.getWorksheets().get("WorldPop2018-2019");
+	  pop20 = dashboard.getWorksheets().get("WorldPop2020");
+        district.applyFilterAsync("Namobj", "PAYUNG", tableauSoftware.FilterUpdateType.REPLACE);
+        structure.applyFilterAsync("Aggregation Id", "PAYUNG", tableauSoftware.FilterUpdateType.REPLACE);
+        road.applyFilterAsync("Aggregation ID", "PAYUNG", tableauSoftware.FilterUpdateType.REPLACE);
+        landcover.applyFilterAsync("Aggregation Id", "PAYUNG", tableauSoftware.FilterUpdateType.REPLACE);
+        rates.applyFilterAsync("Aggregation Id", "PAYUNG", tableauSoftware.FilterUpdateType.REPLACE);        
+		percent.applyFilterAsync("Namobj", "PAYUNG", tableauSoftware.FilterUpdateType.REPLACE);
+        pop18.applyFilterAsync("Aggregation Name", "PAYUNG", tableauSoftware.FilterUpdateType.REPLACE);
+        return pop20.applyFilterAsync("Aggregation Name", "PAYUNG", tableauSoftware.FilterUpdateType.REPLACE);
+        })
+    }
             function Koridor6() {
-                var dashboard, activeSheet, korSheet, halSheet, hourSheet;
-                workbook.activateSheetAsync("asd")
-                .then(function (sheet) {
-                  dashboard = sheet;
-                  korSheet = dashboard.getWorksheets().get("1Koridor");
-                  halSheet = dashboard.getWorksheets().get("1Halte");
-                  hourSheet = dashboard.getWorksheets().get("1hourly");
-                  daySheet = dashboard.getWorksheets().get("1daily");
-                  daySheet.applyFilterAsync("Koridor", "6", tableauSoftware.FilterUpdateType.REPLACE);
-                  korSheet.applyFilterAsync("Koridor", "6", tableauSoftware.FilterUpdateType.REPLACE);
-                  halSheet.applyFilterAsync("Koridor", "6", tableauSoftware.FilterUpdateType.REPLACE);
-                  return hourSheet.applyFilterAsync("Koridor", "6", tableauSoftware.FilterUpdateType.REPLACE);
-                  })
-              }
+    var dashboard, activeSheet, district, structure, road, landcover, rates, percent, pop18, pop20;
+    workbook.activateSheetAsync("Dashboard1")
+    .then(function (sheet) {
+      dashboard = sheet;
+	  district = dashboard.getWorksheets().get("District");
+	  structure = dashboard.getWorksheets().get("StructuresImpact");
+	  road = dashboard.getWorksheets().get("RoadImpact");
+	  landcover = dashboard.getWorksheets().get("LandcoverImpact");
+	  rates = dashboard.getWorksheets().get("LandcoverRates");
+	  percent = dashboard.getWorksheets().get("Percentage");
+	  pop18 = dashboard.getWorksheets().get("WorldPop2018-2019");
+	  pop20 = dashboard.getWorksheets().get("WorldPop2020");
+        district.applyFilterAsync("Namobj", "MUNTE", tableauSoftware.FilterUpdateType.REPLACE);
+        structure.applyFilterAsync("Aggregation Id", "MUNTE", tableauSoftware.FilterUpdateType.REPLACE);
+        road.applyFilterAsync("Aggregation ID", "MUNTE", tableauSoftware.FilterUpdateType.REPLACE);
+        landcover.applyFilterAsync("Aggregation Id", "MUNTE", tableauSoftware.FilterUpdateType.REPLACE);
+        rates.applyFilterAsync("Aggregation Id", "MUNTE", tableauSoftware.FilterUpdateType.REPLACE);        
+		percent.applyFilterAsync("Namobj", "MUNTE", tableauSoftware.FilterUpdateType.REPLACE);
+        pop18.applyFilterAsync("Aggregation Name", "MUNTE", tableauSoftware.FilterUpdateType.REPLACE);
+        return pop20.applyFilterAsync("Aggregation Name", "MUNTE", tableauSoftware.FilterUpdateType.REPLACE);
+        })
+    }
               function Koridor7() {
-                  var dashboard, activeSheet, korSheet, halSheet, hourSheet;
-                  workbook.activateSheetAsync("asd")
-                  .then(function (sheet) {
-                    dashboard = sheet;
-                    korSheet = dashboard.getWorksheets().get("1Koridor");
-                    halSheet = dashboard.getWorksheets().get("1Halte");
-                    hourSheet = dashboard.getWorksheets().get("1hourly");
-                    daySheet = dashboard.getWorksheets().get("1daily");
-                    daySheet.applyFilterAsync("Koridor", "7", tableauSoftware.FilterUpdateType.REPLACE);
-                    korSheet.applyFilterAsync("Koridor", "7", tableauSoftware.FilterUpdateType.REPLACE);
-                    halSheet.applyFilterAsync("Koridor", "7", tableauSoftware.FilterUpdateType.REPLACE);
-                    return hourSheet.applyFilterAsync("Koridor", "7", tableauSoftware.FilterUpdateType.REPLACE);
-                    })
-                }
+    var dashboard, activeSheet, district, structure, road, landcover, rates, percent, pop18, pop20;
+    workbook.activateSheetAsync("Dashboard1")
+    .then(function (sheet) {
+      dashboard = sheet;
+	  district = dashboard.getWorksheets().get("District");
+	  structure = dashboard.getWorksheets().get("StructuresImpact");
+	  road = dashboard.getWorksheets().get("RoadImpact");
+	  landcover = dashboard.getWorksheets().get("LandcoverImpact");
+	  rates = dashboard.getWorksheets().get("LandcoverRates");
+	  percent = dashboard.getWorksheets().get("Percentage");
+	  pop18 = dashboard.getWorksheets().get("WorldPop2018-2019");
+	  pop20 = dashboard.getWorksheets().get("WorldPop2020");
+        district.applyFilterAsync("Namobj", "TIGABINANGA", tableauSoftware.FilterUpdateType.REPLACE);
+        structure.applyFilterAsync("Aggregation Id", "TIGABINANGA", tableauSoftware.FilterUpdateType.REPLACE);
+        road.applyFilterAsync("Aggregation ID", "TIGABINANGA", tableauSoftware.FilterUpdateType.REPLACE);
+        landcover.applyFilterAsync("Aggregation Id", "TIGABINANGA", tableauSoftware.FilterUpdateType.REPLACE);
+        rates.applyFilterAsync("Aggregation Id", "TIGABINANGA", tableauSoftware.FilterUpdateType.REPLACE);        
+		percent.applyFilterAsync("Namobj", "TIGABINANGA", tableauSoftware.FilterUpdateType.REPLACE);
+        pop18.applyFilterAsync("Aggregation Name", "TIGABINANGA", tableauSoftware.FilterUpdateType.REPLACE);
+        return pop20.applyFilterAsync("Aggregation Name", "TIGABINANGA", tableauSoftware.FilterUpdateType.REPLACE);
+        })
+    }
 
     document.getElementById("naman").addEventListener("click", function() {
         map.flyTo({
